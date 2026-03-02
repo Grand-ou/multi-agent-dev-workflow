@@ -6,17 +6,28 @@
 
 ```
 multi-agent-dev-workflow/
-├── SKILL.md                    # 主要 Skill 文檔（完整流程說明）
-├── README.md                   # 本文件
-├── templates/                  # 範本文件
-│   ├── PLAN_TEMPLATE.md        # 開發計劃範本
-│   └── AGENTS_STATUS_TEMPLATE.md  # Agent 狀態追蹤範本
-├── scripts/                    # 輔助腳本
-│   ├── start-task.sh           # 啟動任務腳本
-│   └── merge-task.sh           # 合併任務腳本
-└── examples/                   # 範例專案
-    └── example-plan.md         # 完整範例計劃
+├── SKILL.md                       # 主要 Skill 文檔（完整流程說明）
+├── BORIS_TANE_METHOD.md          # Boris Tane 三步法整合（⭐ 核心方法論）
+├── README.md                      # 本文件
+├── templates/                     # 範本文件
+│   ├── PLAN_TEMPLATE.md          # 開發計劃範本
+│   └── AGENTS_STATUS_TEMPLATE.md # Agent 狀態追蹤範本
+├── scripts/                       # 輔助腳本
+│   ├── start-task.sh             # 啟動任務腳本
+│   └── merge-task.sh             # 合併任務腳本
+└── examples/                      # 範例專案
+    └── example-plan.md           # 完整範例計劃
 ```
+
+## ⭐ 重點：Boris Tane 方法論
+
+**強烈建議先閱讀 [`BORIS_TANE_METHOD.md`](BORIS_TANE_METHOD.md)**
+
+這份文檔整合了 Boris Tane 花 9 個月摸索出的核心工作流：
+- **先不要寫代碼** - 強制分離思考與執行
+- **三步法**: 理解 → 計劃（批注迭代）→ 執行
+- **research.md + plan.md** - 持久化 AI 的理解與計劃
+- **對齊重於生成** - AI 的價值在對齊，不在執行速度
 
 ## 🚀 快速開始
 
