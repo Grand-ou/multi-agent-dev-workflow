@@ -91,11 +91,15 @@ git push -u origin feature/<task-name>
 ```
 
 **Step 2: Plan Before Code** (Boris Tane Step 2)
+
+For frontend tasks, include design requirements. Load [🎨 Frontend Design Guide](./reference/frontend_design.md) for aesthetic guidelines and anti-patterns.
+
 ```
 sessions_spawn(
   task="Based on research.md, generate plan-<task>.md for [task].
   Include: implementation steps, files to modify, new files, API design,
   DB changes, test strategy, risks.
+  For frontend tasks: also include font pairing, color palette, animation strategy.
   DO NOT write code. Wait for review.",
   label="<task-name>",
   cleanup="keep"
@@ -222,10 +226,25 @@ npm test       # full test suite
 npm run build  # build verification
 ```
 
+**Automated UI Testing** (for web applications):
+
+Use Playwright for automated verification. Load [🧪 Testing Guide](./reference/webapp_testing.md) for full patterns.
+
+```bash
+# Start servers + run integration tests
+python scripts/testing/with_server.py \
+  --server "node index.js" --port 3000 \
+  --server "cd web && npm run dev" --port 5173 \
+  -- python tests/integration_test.py
+```
+
+See `examples/` for Playwright patterns: element discovery, console logging, static HTML testing.
+
 Verify:
 - All new features work correctly
 - No regression in existing features
 - Cross-feature integration is sound
+- UI renders correctly (screenshot verification)
 
 #### 4.2 Create Evaluation Report
 
@@ -279,6 +298,7 @@ Your development task →
 
 - `scripts/start-task.sh <task-name> <branch> "<description>"` — Create branch, push, update status
 - `scripts/merge-task.sh <branch>` — Test, merge, push, optional cleanup
+- `scripts/testing/with_server.py` — Start server(s), run test command, cleanup
 
 **Always run scripts with `--help` first** to see usage.
 
@@ -297,6 +317,20 @@ Load these resources as needed during development:
   - Step 3: One-shot execution
   - Why this method works
   - DO's and DON'T's
+
+### Frontend Design (Load During Phase 2 — Frontend Tasks)
+- [🎨 Frontend Design Guide](./reference/frontend_design.md) — Aesthetic guidelines:
+  - Design thinking process (purpose, tone, differentiation)
+  - Typography, color, motion, spatial composition
+  - Anti-patterns ("AI slop" to avoid)
+  - Frontend Sub-Agent checklist
+
+### Testing (Load During Phase 4)
+- [🧪 Webapp Testing Guide](./reference/webapp_testing.md) — Playwright automation:
+  - Decision tree: static vs dynamic testing
+  - Reconnaissance-then-action pattern
+  - Server lifecycle management (with_server.py)
+  - Integration test examples
 
 ### Best Practices (Load During Phase 2)
 - [📋 Development Best Practices](./reference/dev_best_practices.md) — Universal guidelines:
